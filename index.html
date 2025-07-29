@@ -1,292 +1,345 @@
-  <!doctype html>
-  <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/src/style.css" rel="stylesheet">
-    <title>Razorpay</title>
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
-  </head>
-  <body >
-    <nav class="bg-[#02042a]">
-      <div class="relative w-[1080px] mx-auto flex items-center justify-between">
-        <!--logo-->
-        <a href="/" class="cursor-pointer py-2 px-4">
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          screens: {
+            'xs': '375px',
+            'nest': '1024px',
+            'nest-max': '1024px'
+          }
+        }
+      }
+    }
+  </script>
+  <title>Razorpay</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+  <style>
+    /* iPhone specific fixes */
+    @media screen and (max-width: 390px) {
+      .hero-text { font-size: 1.5rem !important; line-height: 1.4 !important; }
+      .hero-section { padding: 2rem 1rem !important; }
+    }
+    
+    /* Nest Hub specific fixes */
+    @media screen and (min-width: 1024px) and (max-height: 600px) {
+      .hero-section { min-height: 70vh !important; }
+      .nav-container { padding: 0.5rem 1rem !important; }
+    }
+    
+    /* Prevent horizontal scroll */
+    body { overflow-x: hidden; }
+    
+    /* Mobile menu animation */
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <nav class="bg-[#02042a] relative">
+    <div class="nav-container relative w-full max-w-[1080px] mx-auto flex items-center justify-between px-4 lg:px-0">
+      <!--logo-->
+      <a href="/" class="cursor-pointer py-2 px-2 lg:px-4 z-20">
+        <img 
+        src="./images/razorpayX.svg" 
+        alt="Razorpay"
+        class="h-4 xs:h-5 lg:h-6"
+        width="auto"
+        height="20px">
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button class="lg:hidden text-white p-2 z-20" id="mobile-toggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path class="hamburger-top" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+          <path class="hamburger-middle" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+          <path class="hamburger-bottom" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden lg:flex space-x-3 xl:space-x-5">
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Payments</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+        
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Banking</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Corporate Card</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Payroll</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Resources</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Support</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+
+        <li class="text-white font-mullish py-4 xl:py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <a href="#" class="text-sm xl:text-base">Pricing</a>
+          <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200"></div>
+        </li>
+
+        <div class="flex space-x-2 xl:space-x-4 py-4 xl:py-7">
           <img 
-          src="./images/razorpayX.svg" 
-          alt="img"
-          width=""
-          height="20px">
-        </a>
+           class="py-2"
+           src="./images/india-flag.svg" 
+           alt="India"
+           class="w-6 h-4 xl:w-8 xl:h-6"
+          >
 
-        <ul class="flex space-x-5">
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
+          <button class="px-2 pb-1 text-blue-800 border rounded-xs border-blue-800 cursor-pointer text-xs font-bold">
+            Log In
+          </button>
 
-            <a href="#">Payments</a>
+          <button class="py-2 px-3 xl:px-4 font-mullish rounded-xs text-xs xl:text-sm font-bold bg-white text-[#4b94ed] border transition-all duration-200 hover:text-[#0b72e7] flex items-center cursor-pointer">
+            Sign Up 
+            <svg viewBox="2 2 20 16" focusable="false" class="w-3 h-3 xl:w-[14px] xl:h-4 ml-1 xl:ml-2">
+             <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+            </svg>
+          </button>
+        </div>
+      </ul>
 
-            <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200" ></div>
-
-          </li>
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu fixed top-0 left-0 w-full h-screen bg-[#02042a] z-10 lg:hidden" id="mobile-menu">
+        <div class="flex flex-col pt-20 px-6 space-y-6">
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Payments</a>
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Banking</a>
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Corporate Card</a>
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Payroll</a>
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Resources</a>
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Support</a>
+          <a href="#" class="text-white text-lg py-3 border-b border-gray-700 hover:text-[#2b84ea] transition-colors">Pricing</a>
           
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
-
-            <a href="#">Banking</a>
-
-            <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200" ></div>
-            
-          </li>
-
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
-
-            <a href="#">Corporate Card</a>
-
-          </li>
-
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
-
-            <a href="#">Payroll</a>
-
-          </li>
-
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
-
-            <a href="#">Resources</a>
-
-            <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200" ></div>
-
-          </li>
-
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
-
-            <a href="#">Support</a>
-
-            <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200" ></div>
-
-          </li>
-
-          <li class="text-white font-mullish py-7 hover:text-[#2b84ea] cursor-pointer transition-all duration-200 relative group">
-
-            <a href="#">Pricing</a>
-
-            <div class="absolute bottom-0 w-full h-1 bg-[#2b84ea] hidden group-hover:block transition-all duration-200" ></div>
-
-          </li>
-
-          <div 
-            class="flex space-x-4 py-7">
-            
-            <img 
-             class="py-2"
-             src="./images/india-flag.svg" 
-             alt="img"
-             width="32px"
-             height="10px"
-            >
-
-            <button 
-              class="px-2 pb-1 text-blue-800 border rounded-xs border-blue-800  cursor-pointer text-xs font-bold">
+          <div class="flex space-x-4 pt-6">
+            <button class="px-4 py-2 text-blue-800 border rounded border-blue-800 cursor-pointer text-sm font-bold">
               Log In
             </button>
-
-            <button class="py-2 px-4 font-mullish rounded-xs text-sm font-bold
-                bg-white text-[#4b94ed] border transition-all duration-200
-                hover:text-[#0b72e7] hidden lg:flex cursor-pointer">Sign Up 
-                <svg
-                  viewBox="2 2 20 16"
-                  focusable="false"
-                  class="w-[14px] h-4 ml-2"
-                >
-                 <path
-                   fill="currentColor"
-                   d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z">
-                 </path>
-                </svg>
-            </button>
-            </a>      
-            
-          </div>
-        </ul>
-      </div>
-    </nav>
-
-    <!--hero section-->
-    <div class="bg-[#02042a] ">
-      <div class= " flex gap-30 w-10/12 max-w-[1080px] mx-auto items-center justify-between">
-        
-        <!--Left part-->
-        <section class="mx-auto space-y-8 max-w-4xl relative">
-
-          <div>
-            <h1 class=" text-white text-4xl font-semibold ">Power your finance, grow your business</h1>
-          </div>
-
-          <div class="w-6 rounded-xs  h-1 bg-[#61cea6] opacity-80 "></div>
-
-          <div>
-            <h4 class="text-white opacity-70 ">
-            Accept payments from customers. Automate payouts to vendors & employees. Never run out of working capital.
-            </h4>
-          </div>
-
-          <!--Sign Up Button-->
-          <a href="#" 
-            class="relative inline-block border-2 border-blue-950 bg-blue-700 text-white px-4 py-2 rounded font-bold  hover:bg-white hover:text-blue-950 transition-all duration-200 overflow-hidden">
-           Sign Up Now
-          </a>
-        </section>
-
-        
-        <!--right part-->
-        <img 
-          src="./images/hero-illustration.jpg" 
-          alt=""
-          class="w-full max-w-[600px] h-auto"
-        >
-
-      </div>
-    </div>
-
-    <!--Hero section's shape part div-->
-      <div class="overflow-hidden w-[103%]">  
-        <img 
-         src="./images/hero-shape.svg" 
-         alt=""
-         class="w-full object-fill"
-        > 
-      </div>
-
-    <!--features section-->
-    <div class="relative overflow-hidden">
-      <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy"
-      width="233"
-      height="167"
-      class="absolute -top-[8rem] left-[0rem] inline-block -z-10 "
-      >
-
-      <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy"
-      width="233"
-      height="167"
-      class="absolute top-[0rem] right-0 rotate-180"
-      >
-      
-      <!--center part of feature-->
-      <div class="w-11/12 max-w-[1080px] mx-auto pt-2">
-        
-        <!--head-->
-        <h2 class="font-bold text-center text-2xl ">Accept payments with Razorpay Payment Suite</h2>
-        <div class="w-6 h-1  rounded-xs bg-[#61cea6] mx-auto mt-4 opacity-80"></div>
-
-        <!--content box-->
-        <div class="w-full flex flex-col relative justify-between min-h-[520px] bg-white border rounded-md mt-4 p-10 py-12">
-  
-          <!-- Left section -->
-          <div class="space-y-18 flex flex-col">
-            <h3 
-              class="font-bold text-3xl leading-12 max-w-[500px]">
-              Supercharge your business with the all-powerful
-              <span class="text-[#2b84ea]">Payment Gateway</span>
-            </h3>
-            <ul class="mt-7 space-y-2">
-              <li class="flex gap-2">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"         stroke="currentColor" class="size-6 text-[#61cea6]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-
-                <span class="">100+ Payment Methods</span>
-              </li>
-              
-              <li class="flex gap-2">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"         stroke="currentColor" class="size-6 text-[#61cea6]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-
-                <span>Industry Leading Success Rate</span>
-              </li>
-              
-              <li class="flex gap-2">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"         stroke="currentColor" class="size-6 text-[#61cea6]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-
-                <span>Superior Checkout Experience</span>
-              </li>
-              
-              <li class="flex gap-2">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"         stroke="currentColor" class="size-6 text-[#61cea6]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-
-                <span>Easy to Integrate</span>
-              </li>
-              
-              <li class="flex gap-2">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"         stroke="currentColor" class="size-6 text-[#61cea6]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-
-                <span>Instant Settlements from day 1</span>
-              </li>
-              
-              <li class="flex gap-2">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"         stroke="currentColor" class="size-6 text-[#61cea6]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-
-                <span>In-depth Reporting and Insights</span>
-              </li>
-            </ul>
-
-           <!-- Buttons -->
-            <div class="flex gap-7">
-              <button class="border-3 font-bold flex cursor-pointer text-white bg-[#2b84ea] py-2 px-2 rounded-lg">Sign Up Now
-                <svg
-                  viewBox="2 2 20 16"
-                  focusable="false"
-                  class="w-[14px] ml-2">
-                 <path
-                   fill="currentColor"
-                   d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z">
-                 </path>
+            <button class="py-2 px-4 font-mullish rounded text-sm font-bold bg-white text-[#4b94ed] border transition-all duration-200 hover:text-[#0b72e7] flex items-center cursor-pointer">
+              Sign Up 
+              <svg viewBox="2 2 20 16" focusable="false" class="w-3 h-3 ml-2">
+               <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
               </svg>
-              </button> 
-              
-              <a 
-               href="#"
-               class="font-bold cursor-pointer text-[#2b84ea] my-auto flex">Know More
-               
-               <svg 
-                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18  " stroke-width="3"      stroke="currentColor" class="size-5">
-                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-               </svg>
-
-              </a>
-            </div>
-        
-          </div>
-          
-          <!-- Right section (image) -->
-          <div class="absolute right-0">
-            <img
-              src="./images/payment-suite.png"
-              alt="Payment Suite"
-              class="max-w-[600px] absolute right-0 -bottom-111"
-            />
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </nav>
 
-    <!--cards-->
-    <div>
-      <!--box 1-->
+  <!--hero section-->
+  <div class="hero-section bg-[#02042a] py-8 lg:py-12 xl:py-16 min-h-[60vh] flex items-center">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 xl:gap-30 w-11/12 max-w-[1080px] mx-auto items-center justify-between">
       
+      <!--Left part-->
+      <section class="space-y-6 lg:space-y-8 max-w-4xl text-center lg:text-left lg:w-1/2">
+        <div>
+          <h1 class="hero-text text-white text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-4xl font-semibold leading-tight">Power your finance, grow your business</h1>
+        </div>
+
+        <div class="w-6 rounded-xs h-1 bg-[#61cea6] opacity-80 mx-auto lg:mx-0"></div>
+
+        <div>
+          <h4 class="text-white opacity-70 text-sm sm:text-base lg:text-base leading-relaxed">
+          Accept payments from customers. Automate payouts to vendors & employees. Never run out of working capital.
+          </h4>
+        </div>
+
+        <!--Sign Up Button-->
+        <a href="#" 
+          class="inline-block border-2 border-blue-950 bg-blue-700 text-white px-4 py-2 lg:px-6 lg:py-3 rounded font-bold hover:bg-white hover:text-blue-950 transition-all duration-200 text-sm lg:text-base">
+         Sign Up Now
+        </a>
+      </section>
+
+      <!--right part-->
+      <div class="lg:w-1/2 w-full">
+        <img 
+          src="./images/hero-illustration.jpg" 
+          alt="Hero Illustration"
+          class="w-full h-auto max-w-[400px] lg:max-w-[600px] mx-auto"
+        >
+      </div>
     </div>
+  </div>
+
+  <!--Hero section's shape part div-->
+  <div class="overflow-hidden w-full">  
+    <img 
+     src="./images/hero-shape.svg" 
+     alt="Shape"
+     class="w-full h-auto object-cover"
+    > 
+  </div>
+
+  <!--features section-->
+  <div class="relative overflow-hidden py-8 lg:py-12 xl:py-16">
+    <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy"
+    class="absolute -top-[4rem] lg:-top-[8rem] left-0 w-24 lg:w-[233px] h-auto -z-10 hidden lg:block">
+
+    <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy"
+    class="absolute top-0 right-0 rotate-180 w-24 lg:w-[233px] h-auto hidden lg:block">
     
-  </body>
-  </html>
+    <!--center part of feature-->
+    <div class="w-11/12 max-w-[1080px] mx-auto">
+      
+      <!--head-->
+      <h2 class="font-bold text-center text-lg sm:text-xl lg:text-2xl">Accept payments with Razorpay Payment Suite</h2>
+      <div class="w-6 h-1 rounded-xs bg-[#61cea6] mx-auto mt-4 opacity-80"></div>
+
+      <!--content box-->
+      <div class="w-full flex flex-col lg:flex-row relative justify-between bg-white border rounded-md mt-6 lg:mt-8 p-4 sm:p-6 lg:p-10 py-6 sm:py-8 lg:py-12 min-h-[400px] lg:min-h-[520px]">
+
+        <!-- Left section -->
+        <div class="lg:w-1/2 space-y-4 lg:space-y-6 xl:space-y-8 flex flex-col">
+          <h3 class="font-bold text-xl sm:text-2xl lg:text-3xl leading-tight max-w-[500px]">
+            Supercharge your business with the all-powerful
+            <span class="text-[#2b84ea]">Payment Gateway</span>
+          </h3>
+          
+          <ul class="space-y-3 lg:space-y-4">
+            <li class="flex gap-3 items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 text-[#61cea6] flex-shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-sm lg:text-base">100+ Payment Methods</span>
+            </li>
+            
+            <li class="flex gap-3 items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 text-[#61cea6] flex-shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-sm lg:text-base">Industry Leading Success Rate</span>
+            </li>
+            
+            <li class="flex gap-3 items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 text-[#61cea6] flex-shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-sm lg:text-base">Superior Checkout Experience</span>
+            </li>
+            
+            <li class="flex gap-3 items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 text-[#61cea6] flex-shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-sm lg:text-base">Easy to Integrate</span>
+            </li>
+            
+            <li class="flex gap-3 items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 text-[#61cea6] flex-shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-sm lg:text-base">Instant Settlements from day 1</span>
+            </li>
+            
+            <li class="flex gap-3 items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 lg:w-6 lg:h-6 text-[#61cea6] flex-shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              <span class="text-sm lg:text-base">In-depth Reporting and Insights</span>
+            </li>
+          </ul>
+
+         <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 lg:gap-7">
+            <button class="font-bold flex items-center justify-center cursor-pointer text-white bg-[#2b84ea] py-2 px-4 lg:py-3 lg:px-6 rounded-lg text-sm lg:text-base transition-all duration-200 hover:bg-[#1e5ba8]">
+              Sign Up Now
+              <svg viewBox="2 2 20 16" focusable="false" class="w-3 h-3 lg:w-[14px] lg:h-4 ml-2">
+               <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+              </svg>
+            </button> 
+            
+            <a href="#" class="font-bold cursor-pointer text-[#2b84ea] flex items-center justify-center sm:justify-start text-sm lg:text-base hover:text-[#1e5ba8] transition-colors duration-200">
+             Know More
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4 lg:w-5 lg:h-5 ml-1">
+               <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+             </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right section (image) -->
+        <div class="lg:w-1/2 lg:absolute lg:right-0 mt-8 lg:mt-0 flex justify-center lg:justify-end">
+          <img
+            src="./images/payment-suite.png"
+            alt="Payment Suite"
+            class="w-full h-auto max-w-[300px] sm:max-w-[400px] lg:max-w-[600px] lg:absolute lg:right-0 lg:-bottom-[111px]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu functionality
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
+
+    mobileToggle.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Animate hamburger to X
+        const paths = mobileToggle.querySelectorAll('path');
+        paths[0].setAttribute('d', 'M6 18L18 6');
+        paths[1].style.opacity = '0';
+        paths[2].setAttribute('d', 'M6 6l12 12');
+      } else {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Animate X back to hamburger
+        const paths = mobileToggle.querySelectorAll('path');
+        paths[0].setAttribute('d', 'M4 6h16');
+        paths[1].style.opacity = '1';
+        paths[2].setAttribute('d', 'M4 18h16');
+      }
+    });
+
+    // Close menu when clicking on menu items
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        isMenuOpen = false;
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        const paths = mobileToggle.querySelectorAll('path');
+        paths[0].setAttribute('d', 'M4 6h16');
+        paths[1].style.opacity = '1';
+        paths[2].setAttribute('d', 'M4 18h16');
+      });
+    });
+  </script>
+</body>
+</html>
