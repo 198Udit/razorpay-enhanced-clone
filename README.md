@@ -1,6 +1,6 @@
 # 💳 Razorpay Enhanced Clone
 
-A responsive, modern frontend clone of the [Razorpay](https://razorpay.com) homepage which they were using before and now they are using the framer, and  I built with HTML, Tailwind CSS, and custom components. Designed to closely replicate the original UI with enhancements and upcoming animations to showcase web development proficiency.
+A responsive, modern frontend clone of the [Razorpay](https://razorpay.com) homepage which they were using before and some of the pages they still using, and now Razorpay using the "framer", and  I built with HTML, Tailwind CSS, and custom components. Designed to closely replicate the original UI with enhancements and upcoming animations to showcase web development proficiency.
 
 ---
 
@@ -29,7 +29,7 @@ razorpay-enhanced-clone/
 
 ## 📸 Preview
 
-![Project Screenshot](./images/razorpayX.svg) <!-- Replace this with an actual screenshot later -->
+![Project Screenshot](./images/razorpayX.svg) 
 
 > 🌟 Add a real screenshot or deploy it via GitHub Pages for live preview
 
