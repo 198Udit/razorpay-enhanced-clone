@@ -39,7 +39,9 @@ razorpay-enhanced-clone/
 
 - **HTML5**
 - **Tailwind CSS**
-- Planned: **GSAP / Framer Motion** (for animations)
+- Planned: Add animations using **GSAP** (JavaScript animation library)
+
+
 
 ---
 
@@ -71,8 +73,8 @@ If you're a recruiter or collaborator—let's connect!
 
 If you're interested in hiring or collaborating, feel free to reach out via:
 
-- 📧 Email: your-email@example.com
-- 💼 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile) *(replace this with your actual LinkedIn)*
+- 📧 Email: uditverma198@gmail.com
+- 💼 LinkedIn: [Udit Verma](www.linkedin.com/in/udit-verma198) 
 
 ---
 
