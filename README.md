@@ -74,7 +74,8 @@ If you're a recruiter or collaborator—let's connect!
 If you're interested in hiring or collaborating, feel free to reach out via:
 
 - 📧 Email: uditverma198@gmail.com
-- 💼 LinkedIn: [Udit Verma](www.linkedin.com/in/udit-verma198) 
+- 💼 LinkedIn: [Udit Verma](https://www.linkedin.com/in/udit-verma198)
+
 
 ---
 
